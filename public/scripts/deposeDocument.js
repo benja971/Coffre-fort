@@ -23,7 +23,9 @@ async function submitDocument() {
 		showToast("toast");
 
 		const a = document.querySelector("#securedElement");
-		a.src = json.filePath;
+		console.log(a);
+		a.href = "./" + json.documentPath;
+		console.log("./" + json.documentPath);
 		form.reset();
 	} else {
 		createToast("toast", "error", "error", "Error", json.message);

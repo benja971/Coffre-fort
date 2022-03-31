@@ -108,8 +108,6 @@ function init() {
 		const password = document.querySelector("#login input[name='password']").value;
 
 		if (login && password) {
-			console.log("login: " + login + " password: " + password);
-
 			const data = {
 				login,
 				password,
@@ -124,8 +122,6 @@ function init() {
 			});
 
 			res = await res.json();
-
-			console.log(res);
 
 			if (res.success) {
 				toSession("user", res.user);

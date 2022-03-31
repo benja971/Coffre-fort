@@ -1,6 +1,6 @@
 {
-	"name": "Coffre-fort",
-	"version": "22.03.09",
+	"name": "coffre-fort",
+	"version": "22.03.31",
 	"description": "Node.js express http server made to use with RedBird https proxy",
 	"main": "server.js",
 	"scripts": {
@@ -41,9 +41,10 @@
 		"express-useragent": "^1.0.15",
 		"image-data-uri": "^1.0.0",
 		"ip": "^1.1.5",
+		"mariadb": "^3.0.0",
+		"mysql2": "^2.3.3",
 		"nodemon": "^2.0.7",
 		"sass": "^1.49.10",
-		"mysql2": "^2.3.3",
 		"sequelize": "^6.17.0"
 	}
 }

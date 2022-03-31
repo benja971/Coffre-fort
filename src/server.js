@@ -50,17 +50,6 @@ const getCountry = req => {
 // App
 const app = express();
 
-{
-	db.sequelize
-		.sync({ force: true })
-		.then(() => {
-			console.log("Database & tables created!");
-		})
-		.catch(err => {
-			console.log(err);
-		});
-}
-
 // Basic middlewares
 {
 	app.enable("trust proxy");
@@ -99,6 +88,15 @@ const app = express();
 		// If the request is authorized, continue
 		if (authorized) next();
 	});
+
+	// db.sequelize
+	// 	.sync({ force: true })
+	// 	.then(() => {
+	// 		console.log("Database & tables created!");
+	// 	})
+	// 	.catch(err => {
+	// 		console.log(err);
+	// 	});
 }
 
 route(app);
