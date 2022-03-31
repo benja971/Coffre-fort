@@ -1,50 +1,50 @@
 // 22.03.09
 
 const use_cache = true;
-const cache_domains = ['localhost', 'express-server.nicolasgwy.dev'];
+const cache_domains = ["localhost", "coffre-fort.benjamin-niddam.dev"];
 
-const badge = '/img/badge_icon_x192.png';
-const icon = '/img/round_icon_x512.png';
+const badge = "/img/badge_icon_x192.png";
+const icon = "/img/round_icon_x512.png";
 
 // Install event
-self.addEventListener('install', async e => {
-	console.log('Service worker installed');
+self.addEventListener("install", async e => {
+	console.log("Service worker installed");
 
 	// Show notification
-	self.registration.showNotification('Update', {
-		body: 'App is updating...',
+	self.registration.showNotification("Update", {
+		body: "App is updating...",
 		badge,
 		icon,
-		tag: 'update',
-		requireInteraction: true
+		tag: "update",
+		requireInteraction: true,
 	});
 
 	self.skipWaiting();
 });
 
 // Activate event
-self.addEventListener('activate', async e => {
-	console.log('Service worker activated');
+self.addEventListener("activate", async e => {
+	console.log("Service worker activated");
 
 	// Delete main and nav caches
-	caches.delete('main');
-	caches.delete('nav');
+	caches.delete("main");
+	caches.delete("nav");
 
 	// Show notification
-	self.registration.showNotification('Update', {
-		body: 'App updated.',
-		actions: [{ title: 'Reload', action: 'reload' }],
+	self.registration.showNotification("Update", {
+		body: "App updated.",
+		actions: [{ title: "Reload", action: "reload" }],
 		badge,
 		icon,
-		tag: 'update',
-		renotify: true
+		tag: "update",
+		renotify: true,
 	});
 
 	self.clients.claim();
 });
 
 // Fetch event
-self.addEventListener('fetch', e => e.respondWith(respond(e)));
+self.addEventListener("fetch", e => e.respondWith(respond(e)));
 
 async function fetchAndCache(req, cache_name) {
 	// Fetch request
@@ -53,8 +53,8 @@ async function fetchAndCache(req, cache_name) {
 		return null;
 	});
 
-	const is_get = req.method === 'GET';
-	const is_api = req.url.includes('/api/');
+	const is_get = req.method === "GET";
+	const is_api = req.url.includes("/api/");
 	const is_cahing_domain = cache_domains.some(domain => req.url.includes(domain));
 
 	if (use_cache && is_cahing_domain && is_get && !is_api) {
@@ -74,35 +74,35 @@ async function respond(e) {
 	if (cached_res) return cached_res;
 
 	// If request is not found, try to fetch it
-	return await fetchAndCache(e.request, 'main');
+	return await fetchAndCache(e.request, "main");
 }
 
 // Refresh clients
 async function refreshClients() {
 	const client_list = await self.clients.matchAll();
-	for (const client of client_list) client.navigate?.('/');
+	for (const client of client_list) client.navigate?.("/");
 }
 
 // Notification click
-self.addEventListener('notificationclick', e => {
-	console.log('Notification clicked');
+self.addEventListener("notificationclick", e => {
+	console.log("Notification clicked");
 	console.dir(e);
 
 	// Close action
-	if (e.action === 'close') e.notification.close();
+	if (e.action === "close") e.notification.close();
 
 	// Reload action
-	if (e.action === 'reload') {
+	if (e.action === "reload") {
 		e.notification.close();
 		refreshClients();
 	}
 });
 
 // Notification close
-self.addEventListener('notificationclose', e => {});
+self.addEventListener("notificationclose", e => {});
 
 // Broadcast channel
-const channel = new BroadcastChannel('sw-messages');
+const channel = new BroadcastChannel("sw-messages");
 
 // Broadcast messages
-channel.addEventListener('message', async e => {});
+channel.addEventListener("message", async e => {});

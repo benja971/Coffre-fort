@@ -1,8 +1,8 @@
 {
-	"id": "express-server",
+	"id": "Coffre-fort",
 
-	"name": "Express Server",
-	"short_name": "Express Server",
+	"name": "Coffre fort",
+	"short_name": "Coffre fort",
 	"description": "Node.js express http server made to use with RedBird https proxy",
 
 	"start_url": "/",
@@ -47,7 +47,7 @@
 	"related_applications": [
 		{
 			"platform": "web",
-			"url": "https://express-server.nicolasgwy.dev"
+			"url": "https://coffre-fort.benjamin-niddam.dev"
 		}
 	]
 }
