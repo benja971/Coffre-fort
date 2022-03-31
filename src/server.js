@@ -3,6 +3,9 @@ const useragent = require("express-useragent");
 const fileUpload = require("express-fileupload");
 const compression = require("compression");
 
+const sequelize = require("sequelize");
+const db = require("./models");
+
 const ip = require("ip");
 
 const route = require("./route");
