@@ -12,8 +12,8 @@
 	"display": "standalone",
 	"orientation": "any",
 
-	"background_color": "#333333",
-	"theme_color": "#7dc36b",
+	"background_color": "#252525",
+	"theme_color": "#252525",
 
 	"icons": [
 		{

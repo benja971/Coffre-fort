@@ -1,6 +1,6 @@
-// 22.03.09
+// 22.03.31
 
-const use_cache = true;
+const use_cache = false;
 const cache_domains = ["localhost", "coffre-fort.benjamin-niddam.dev"];
 
 const badge = "/img/badge_icon_x192.png";
