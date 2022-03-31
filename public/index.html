@@ -22,9 +22,6 @@
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-		<!-- Styles -->
-		<link rel="stylesheet" href="./styles/css/main.css" />
-
 		<!-- Libraries -->
 
 		<!-- Apis -->
@@ -34,12 +31,81 @@
 
 		<!-- Scripts -->
 		<script src="./scripts/swclient.js"></script>
-	</head>
 
+		<!-- Styles -->
+		<link rel="stylesheet" href="./styles/css/main.css" />
+		<!-- styles -->
+		<link rel="stylesheet" href="./styles/index.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons" />
+
+		<!-- scripts -->
+		<script src="./scripts/functions.js" defer></script>
+		<script src="./scripts/deposeDocument.js" defer></script>
+		<script src="./scripts/main.js" defer></script>
+
+		<title>Secured_file_manager</title>
+	</head>
 	<body>
-		<span class="material-icons">public</span>
-		<h1>Hello world</h1>
-		<p>Express server home page.</p>
-		<a href="https://github.com/Iconejey/express-server">Github repo</a>
+		<section id="register" class="page">
+			<form>
+				<h1>Register</h1>
+				<div>
+					<label for="login">Login</label>
+					<input required type="text" name="login" placeholder="Login" />
+				</div>
+
+				<div>
+					<label id="pass-label" for="password">Password</label>
+					<input required type="password" name="password" placeholder="password" />
+				</div>
+
+				<input id="submit-register" type="submit" value="Register" />
+				<p>Already have an account? <a id="go-login">Click here</a></p>
+			</form>
+		</section>
+
+		<section id="login" class="page">
+			<form>
+				<h1>Login</h1>
+				<div>
+					<label for="login">Login</label>
+					<input required type="text" name="login" placeholder="Login" />
+				</div>
+
+				<div>
+					<label id="pass-label" for="password">Password</label>
+					<input required type="password" name="password" placeholder="password" />
+				</div>
+
+				<input id="submit-login" type="submit" value="Log in" />
+				<p>Don't have an account ? <a id="go-register">Go there</a></p>
+			</form>
+		</section>
+
+		<main id="home" class="page">
+			<div class="left">
+				<a href="#" target="_blank" rel="noopener noreferrer"> <i id="securedElement" class="material-icons">snippet_folder</i></a>
+			</div>
+			<div class="right">
+				<div id="drop-area">
+					<form class="my-form" action="/submit-doc" method="POST">
+						<p>Drag and drop your new file here</p>
+						<input id="input-file" type="file" name="document" required />
+
+						<input id="submit-doc" type="submit" value="Send file" />
+					</form>
+				</div>
+			</div>
+		</main>
+
+		<div id="toast" class="toast">
+			<div class="left">
+				<i class="material-icons"></i>
+			</div>
+			<div class="right">
+				<h3></h3>
+				<p></p>
+			</div>
+		</div>
 	</body>
 </html>

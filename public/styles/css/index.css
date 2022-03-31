@@ -1,0 +1,304 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #252525;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #f5f5f5;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  background: #252525;
+}
+
+.page:not(.visible) {
+  display: none !important;
+}
+
+h1,
+label {
+  user-select: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+}
+body .toast {
+  position: fixed;
+  right: -450px;
+  top: 10%;
+  display: flex;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  min-height: 60px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  transition: right 0.5s ease-in-out;
+}
+body .toast.active {
+  right: -150px;
+}
+body .toast.error .left {
+  border-left: 3px solid #ff355b;
+  color: #f50000;
+}
+body .toast.warning .left {
+  border-left: 3px solid #ffb400;
+  color: #ffb400;
+}
+body .toast.success .left {
+  border-left: 3px solid #35ff5b;
+  color: #35ff5b;
+}
+body .toast .left {
+  flex: 2;
+  background-color: #f5f5f5;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #222;
+  padding-top: 8px;
+}
+body .toast .left i {
+  font-size: 35px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 10px;
+  background: none;
+}
+body .toast .right {
+  border-radius: 0 10px 10px 0;
+  flex: 15;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  background-color: #f5f5f5;
+}
+body .toast .right h3,
+body .toast .right p {
+  padding-left: 20px;
+  background: #f5f5f5;
+  color: #252525;
+  font-size: 14px;
+}
+body .toast .right h3 {
+  font-size: 16px;
+  font-weight: 800;
+  flex: 1;
+  padding-top: 5px;
+}
+body .toast .right p {
+  flex: 2;
+  font-weight: 500;
+}
+body #login,
+body #register {
+  width: 40%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  min-width: 400px;
+}
+body #login h1,
+body #register h1 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #f5f5f5;
+  margin-bottom: 1rem;
+}
+body #login form,
+body #register form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
+  padding: 2em 0;
+}
+body #login form div,
+body #register form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body #login form div label,
+body #register form div label {
+  margin-bottom: 10px;
+  align-self: start;
+}
+body #login form div label#pass-label,
+body #register form div label#pass-label {
+  margin-top: 15px;
+}
+body #login form div input,
+body #register form div input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background: #252525;
+  color: #f5f5f5;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #f5f5f5;
+  border-left: 1px solid #f5f5f5;
+}
+body #login form div input:-webkit-autofill, body #login form div input:-webkit-autofill:hover, body #login form div input:-webkit-autofill:focus,
+body #register form div input:-webkit-autofill,
+body #register form div input:-webkit-autofill:hover,
+body #register form div input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f5f5f5;
+  -webkit-box-shadow: 0 0 0px 1000px #252525 inset;
+  box-shadow: 0 0 0px 1000px #252525 inset;
+}
+body #login form div input:hover,
+body #register form div input:hover {
+  border-bottom: 1px solid #f5f5f5;
+  border-left: 1px solid #f5f5f5;
+  background: #333333;
+  transition: background 0.3s ease;
+}
+body #login form input[type=submit],
+body #register form input[type=submit] {
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+  color: #252525;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  background: #f5f5f5;
+  font-weight: 600;
+  width: 150px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+body #login form input[type=submit]:hover,
+body #register form input[type=submit]:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 4px 4px 5px rgba(245, 245, 245, 0.4);
+}
+body #login form input[type=submit]:active,
+body #register form input[type=submit]:active {
+  transform: translateY(0);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 2px 2px 2px rgba(245, 245, 245, 0.4);
+}
+body #login form p,
+body #register form p {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-top: 15px;
+}
+body #login form p a,
+body #register form p a {
+  color: #a0a0a0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+}
+body #login form p a:hover,
+body #register form p a:hover {
+  color: #00a0a9;
+  cursor: pointer;
+}
+body main {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+body main .left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .left i {
+  font-size: 10em;
+  color: #f5f5f5;
+  margin-bottom: 1rem;
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 50%;
+  color: #252525;
+  cursor: pointer;
+}
+body main .right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main .right #drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 480px;
+  font-family: sans-serif;
+  margin: 100px auto;
+  padding: 10px;
+  cursor: pointer;
+}
+body main .right #drop-area form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+body main .right #drop-area form input[type=file] {
+  height: 80px;
+  font-size: 16px;
+  margin-top: 10px;
+  padding-right: 150px;
+  cursor: pointer;
+}
+body main .right #drop-area form input[type=submit] {
+  width: 150px;
+  height: 25px;
+  text-align: center;
+  background: #f5f5f5;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+}
