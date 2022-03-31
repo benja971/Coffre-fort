@@ -6,22 +6,22 @@ const users = db.user;
 
 const submitDocument = async (req, res) => {
 	const { id_user } = req.body;
-	const file = req.files?.document;
+	const { document } = req?.files;
 
-	if (!id_user || !file)
+	if (!id_user || !document)
 		return res.status(404).json({
 			success: false,
 			message: "Missing parameters",
 		});
 
-	// get extension of file
-	const ext = path.extname(file.name);
-	const fileName = `${id_user}-secured${ext}`;
-	const filePath = `userfiles/${fileName}`;
+	// get extension of document
+	const ext = path.extname(document.name);
+	const documentName = `${id_user}-secured${ext}`;
+	const documentPath = `userfiles/${documentName}`;
 
 	const ok = await users.update(
 		{
-			file_path: filePath,
+			file_path: documentPath,
 		},
 		{
 			where: {
@@ -36,12 +36,12 @@ const submitDocument = async (req, res) => {
 			message: "User not found",
 		});
 
-	fs.writeFileSync(`./public/${filePath}`, file.data);
+	fs.writeFileSync(`./public/${documentPath}`, document.data);
 
 	res.status(200).json({
 		success: true,
 		message: "Document submitted successfully",
-		filePath,
+		documentPath,
 	});
 };
 

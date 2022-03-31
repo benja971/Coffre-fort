@@ -1,21 +1,18 @@
 async function submitDocument() {
-	const fileInput = document.querySelector("#input-file");
-	const id_user = fromSession("user").id_user;
+	const form = document.querySelector(".my-form");
+	const formdata = new FormData(form);
 
-	console.log(fileInput.files[0]);
-
-	const formdata = new FormData();
-
+	const { id_user } = JSON.parse(fromSession("user"));
 	formdata.append("id_user", id_user);
-	formdata.append("document", fileInput.files[0]);
 
-	console.log(formdata.values);
+	if (!formdata.get("id_user") || !formdata.get("document").name) {
+		createToast("toast", "error", "error", "Error", "Missing parameters");
+		showToast("toast");
+		return;
+	}
 
 	const res = await fetch("/submit-doc", {
 		method: "POST",
-		headers: {
-			"Content-Type": "multipart/form-data",
-		},
 		body: formdata,
 	});
 
@@ -27,6 +24,7 @@ async function submitDocument() {
 
 		const a = document.querySelector("#securedElement");
 		a.src = json.filePath;
+		form.reset();
 	} else {
 		createToast("toast", "error", "error", "Error", json.message);
 		showToast("toast");

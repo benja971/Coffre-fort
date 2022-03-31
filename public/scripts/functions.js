@@ -27,6 +27,7 @@ function displayPage() {
 
 	//if location is valid, show page
 	if (auth.includes(pathname)) {
+		if (!fromSession("user") && !["/register", "/login"].includes(pathname)) return openUrl("/login");
 		showPages(pathname.slice(1));
 	}
 
