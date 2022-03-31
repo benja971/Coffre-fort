@@ -16,7 +16,6 @@ function showPages(...ids) {
 	const pages = document.querySelectorAll(".page");
 
 	for (const page of pages) {
-		console.log("id " + page.id);
 		page.classList.toggle("visible", ids.includes(page.id));
 	}
 }

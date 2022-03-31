@@ -3,7 +3,6 @@ const users = db.user;
 
 const login = async (req, res) => {
 	const { login, password } = req.body;
-	console.log(req.body);
 
 	if (!login || !password)
 		return res.status(400).json({
