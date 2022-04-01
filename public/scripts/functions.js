@@ -83,12 +83,16 @@ function init() {
 			res = await res.json();
 
 			if (res.success) {
+				toSession("user", res.user);
+				const a = document.querySelector("#securedElement");
+
+				a.href = "./" + res.user.file_path;
+
 				createToast("toast", "success", "check_circle", "Success", res.message);
 				showToast("toast");
 				setTimeout(() => {
-					toSession("user", res.user);
 					openUrl("/home");
-				}, 1000);
+				}, 500);
 			} else {
 				createToast("toast", "error", "error", "Error", res.message);
 				showToast("toast");
@@ -128,7 +132,7 @@ function init() {
 				showToast("toast");
 				setTimeout(() => {
 					openUrl("/home");
-				}, 1000);
+				}, 500);
 			} else {
 				createToast("toast", "error", "error", "Error", res.message);
 				showToast("toast");
