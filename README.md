@@ -88,6 +88,3 @@ receive
 ## Résultats
 
 Le site web est accessible à l'adresse: https://coffre-fort.benjamin-niddam.dev
-<br>
-
-Le code source du site web est disponible à l'adresse: https://github.com/benja971/Coffre_fort
